@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * For implement this task focus on clear code, and make this solution as simple readable as possible
@@ -55,7 +54,7 @@ public class DocumentManager {
             .filter(document -> matchContainsContents(request.getContainsContents(), document.getContent()))
             .filter(document -> matchAuthorIds(request.getAuthorIds(), document.getAuthor()))
             .filter(document -> matchCreatedRange(request.getCreatedFrom(), request.getCreatedTo(), document.getCreated()))
-            .collect(Collectors.toList());
+            .toList();
   }
 
   private boolean matchTitlePrefixes(List<String> titlePrefixes, String title) {
